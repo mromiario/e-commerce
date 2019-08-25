@@ -14,6 +14,10 @@
                 <label for="price">Price:</label>
                 <input type="text" class="form-control" v-model="price">
             </div>
+              <div class="form-group">
+                <label for="Description">Description:</label>
+                <textarea class="form-control" v-model="description"/>
+            </div>
             <input type="submit" class="btn btn-default" style="background-color: #0f0e0ec5; color : rgb(255, 255, 255);" value="Update">
             <hr>
         </form>
@@ -27,7 +31,8 @@ export default {
     return {
       name: '',
       stock: '',
-      price: ''
+      price: '',
+      description: ''
     }
   },
   props: ['id'],
@@ -38,6 +43,7 @@ export default {
         this.name = data.name
         this.stock = data.stock
         this.price = data.price
+        this.description = data.description
       })
       .catch(err => {
         console.log(err)
@@ -59,7 +65,15 @@ export default {
       )
         .then(({ data }) => {
           console.log(data)
-          this.$router.push({ path: '/sell-products' })
+          this.$emit('fetch', true)
+          this.$root.$emit('bv::hide::modal', 'modal-1')
+          this.$swal.fire({
+            type: 'success',
+            title: 'Success!',
+            text: `Your product has been updated!`,
+            showConfirmButton: false,
+            timer: 1500
+          })
         })
         .catch(err => {
           console.log(err)

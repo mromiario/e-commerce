@@ -65,7 +65,17 @@ export default new Router({
     {
       path: '/buy/:id',
       name: 'buy',
-      component: () => import(/* webpackChunkName: "transaction" */ './views/buy.vue')
+      component: () => import(/* webpackChunkName: "buy" */ './views/buy.vue')
+    },
+    {
+      path: '/history',
+      name: 'history',
+      component: () => import(/* webpackChunkName: "history" */ './views/history.vue')
+    },
+    {
+      path: '/admin',
+      name: 'admin',
+      component: () => import(/* webpackChunkName: "admin" */ './views/admin.vue')
     }
   ]
 })

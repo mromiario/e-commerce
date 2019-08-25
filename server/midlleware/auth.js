@@ -49,8 +49,16 @@ function authorizationUser (req,res,next) {
 
 }
 
+function authAdmin(req,res,next) {
+    if(req.decoded.email == process.env.ADMIN){
+        next()
+    }
+
+}
+
 module.exports = {
     authentication,
     authorization,
-    authorizationUser
+    authorizationUser,
+    authAdmin
 }

@@ -13,7 +13,7 @@ class controllerUser{
             let dataSend = {
                 name : data.name,
                 email : data.email,
-                cart: data.Cart
+                cart: data.Cart,
             }
             res.json(dataSend)
         })

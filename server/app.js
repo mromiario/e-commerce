@@ -1,4 +1,4 @@
-if(!process.env.NODE_ENV || process.env.DEV == 'development'){
+if(!process.env.NODE_ENV || process.env.NODE_ENV == 'dev' || process.env.NODE_ENV == 'test'){
     const env = require('dotenv').config()
 }
 const mongoose = require('mongoose')
@@ -13,7 +13,7 @@ app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 app.use(morgan('dev'))
 
-mongoose.connect( 'mongodb://localhost:27017/tes' , {useNewUrlParser: true},()=>{
+mongoose.connect( 'mongodb://localhost:27017/'+ process.env.NODE_ENV , {useNewUrlParser: true},()=>{
     console.log('connected to mongodb');
 })
  

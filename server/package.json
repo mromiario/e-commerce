@@ -4,7 +4,9 @@
   "description": "Routes --- Access : http://localhost:3000/api",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "NODE_ENV=test mocha",
+    "dev": "NODE_ENV=dev nodemon app.js",
+    "start": "NODE_ENV=prod node app.js"
   },
   "repository": {
     "type": "git",

@@ -1,19 +1,22 @@
 <template>
   <div class="home">
-    <img alt="Boo-Koo logo" src="../assets/owl.png">
-    <login msg="Welcome to Boo-Koo"/>
+    <products v-if="!admin" />
+    <adminPage v-else/>
 
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import login from './login.vue'
+import products from './products.vue'
+import adminPage from './admin.vue'
 
 export default {
+  props: ['admin'],
   name: 'home',
   components: {
-    login
+    products,
+    adminPage
   }
 }
 </script>
