@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const Controller = require('../controllers/ControllerTransaction')
+const Controller = require('../controllers/controllerTransaction')
 const {authentication, authAdmin} = require('../midlleware/auth')
 
 router.use(authentication)
