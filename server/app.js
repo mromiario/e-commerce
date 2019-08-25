@@ -13,7 +13,7 @@ app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 app.use(morgan('dev'))
 
-mongoose.connect( 'mongodb://localhost:27017/'+ process.env.NODE_ENV , {useNewUrlParser: true},()=>{
+mongoose.connect( 'mongodb://mromiario:123@cluster0-shard-00-00-qjyss.mongodb.net:27017,cluster0-shard-00-01-qjyss.mongodb.net:27017,cluster0-shard-00-02-qjyss.mongodb.net:27017/ecommerce?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority', {useNewUrlParser: true},()=>{
     console.log('connected to mongodb');
 })
  
