@@ -7,7 +7,7 @@ const cors = require('cors')
 const express = require('express')
 const app = express()
 const routes = require('./routes')
-const port = 3000 || process.env.PORT
+const port = process.env.PORT
  
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
